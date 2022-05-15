@@ -1,16 +1,16 @@
 class NameMatrix:
-    # informações iniciais
+    # Basic Information
     p_names = [[0]]
     name = "Name"
 
-    # loop para criação da primeira linha da matriz com nomes.
+    # Loop to create a line of names.
     while len(name) > 0:
-        name = str(input("Insira o nome do Player/Personagem ou pressione ENTER: "))
+        name = str(input("Type a player name em press RETURN or simply press RETURN: "))
         if not len(name) == 0:
             p_names[0].append(name)
             p_names.append([name])
 
-    # loop para transformar a lista em matriz.
+    # Loop to create Name Matrix.
     for x in range(1, len(p_names[0])):
         for y in range(1, len(p_names[0])):
             p_names[x].append(0)

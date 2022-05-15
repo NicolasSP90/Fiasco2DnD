@@ -3,7 +3,7 @@ from M_Name_Matrix import NameMatrix
 from M_Groups_Sub import Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group8
 
 
-# informacoes iniciais
+# Basic Information
 groups = 8
 p_int_count = 0
 matrix_l = 1
@@ -12,23 +12,23 @@ matrix_loop = 0
 matrix_lcount = 1
 matrix_ccount = 2
 
-# matriz de nomes
+# Name Matrix
 NameMatrix()
 p_matrix = NameMatrix.p_names
 players = len(p_matrix)-1
 
-# número de interações máximo e relação do grupo
-groupint = int(input("Informe a interação do grupo.\n1-Cirular\n2-Universal\n"))
+# Number of Interactions and Players Relations
+groupint = int(input("Inform Group Interaction.\n1-Circle\n2-Universal\n"))
 if groupint == 1:
     p_int = int(players)
 elif groupint == 2:
     p_int = int(players * (players - 1) / 2)
 else:
     p_int = 0
-    print("Problemas ao verificar o tipo de interação do grupo. Tente novamente.")
+    print("Problem trying to identify the Group Interaction. Restart and Try Again.")
     exit()
 
-# rolagem aleatória de grupo e subgrupo
+# Random Numbers - Groups and Subgroups
 while int(p_int_count) < p_int:
     intplayer = []
     rolltitle = int(randrange(1, groups+1))
@@ -66,10 +66,10 @@ while int(p_int_count) < p_int:
         intplayer.append(Group8.title)
         intplayer.append(Group8.subtitles[rollsub - 1][0])
     else:
-        print("Problema ao definir título e subtítulo. Tente novamente.")
+        print("Problem trying to identify the Groups and Subgroups. Restart and Try Again.")
         exit()
 
-    # Preenchimento da matriz para interação circular
+    # Circular Name Matrix
     if groupint == 1:
         if matrix_ccount == players + 1:
             # noinspection PyTypeChecker
@@ -83,7 +83,7 @@ while int(p_int_count) < p_int:
         matrix_ccount += 1
         matrix_lcount += 1
 
-    # Preenchimento da matriz para interação universal
+    # Universal Name Matrix
     elif groupint == 2:
         p_matrix[matrix_lcount][matrix_ccount] = intplayer
         p_matrix[matrix_ccount][matrix_lcount] = intplayer
@@ -94,11 +94,11 @@ while int(p_int_count) < p_int:
             matrix_ccount = matrix_c + matrix_loop
             matrix_lcount = matrix_l + matrix_loop
     else:
-        print("Problema ao definir título e subtítulo (2). Tente novamente.")
+        print("Problem to create the Name Matrix. Restart and Try Again.")
         exit()
 
 for x in range(1, players+1):
-    print("\nO Jogador " + p_matrix[x][0] + " possui interação com os seguintes jogadores:")
+    print("\nPlayer " + p_matrix[x][0] + " is related to the following Players:")
     for y in range(1, players+1):
         if p_matrix[x][y] != 0:
-            print(p_matrix[0][y] + " - " + p_matrix[x][y][0] + " - " + p_matrix[x][y][1])
+            print(p_matrix[0][y] + " (" + p_matrix[x][y][0] + ") " + p_matrix[x][y][1])
