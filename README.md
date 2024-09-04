@@ -1,3 +1,5 @@
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
 # Introduction
 
 **First things first:** This is a RPG related project I'm developing to test my programming/coding skills. Nothing too fancy, just using it to have a proper goal (or problem) to work with.
